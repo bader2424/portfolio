@@ -19,7 +19,7 @@
       <a href="#experience" data-i18n="navExperience">Experience</a>
       <a href="#skills" data-i18n="navSkills">Skills</a>
       <a href="#projects" data-i18n="navProjects">Projects</a>
-      <a href="#credentials" data-i18n="navCredentials">Credentials</a>
+      <a href="#education" data-i18n="navCredentials">Education</a>
       <a href="#contact" data-i18n="navContact">Contact</a>
     </nav>
     <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch to Arabic">العربية</button>
@@ -29,19 +29,14 @@
     <section class="hero wrap" id="home">
       <p class="eyebrow" data-i18n="intro">FULL-STACK / DEVOPS / CLOUD</p>
       <h1><span data-i18n="hello">Hello, I'm</span><br><span id="typedName" class="typed-name"></span><span class="caret">|</span></h1>
-      <p class="role-line"><span class="role-prefix" data-i18n="iAm">I am a</span> <span id="roleRotator"></span></p>
       <p class="hero-summary" data-i18n="summary">I build web applications, backend APIs, cloud infrastructure, and delivery pipelines. I work across the full path from product interface to deployment and monitoring.</p>
       <div class="hero-actions"><a class="button primary" href="#experience" data-i18n="seeExperience">See experience <i data-lucide="arrow-down"></i></a><a class="button secondary" href="mailto:bader.b2001@gmail.com" data-i18n="emailMe">Email me <i data-lucide="mail"></i></a></div>
-      <div class="hero-meta"><span><i data-lucide="map-pin"></i> Jeddah, Saudi Arabia</span><span><i data-lucide="languages"></i> Arabic / English</span><span><i data-lucide="circle-check"></i> Available for opportunities</span></div>
     </section>
 
-    <section class="section wrap" id="experience">
-      <div class="section-title"><p class="eyebrow">01 / <span data-i18n="experience">EXPERIENCE</span></p><h2 data-i18n="experienceTitle">Experience first. Clear responsibilities.</h2></div>
-      <div class="experience-list">
-        <article class="experience-item reveal"><div class="date">2024 - <span data-i18n="present">PRESENT</span></div><div><h3 data-i18n="freelanceTitle">Freelance Full-Stack & DevOps Engineer</h3><p data-i18n="freelanceCopy">Build portfolio websites and custom web applications for clients. Handle UI development, backend integration, containers, CI/CD workflows, infrastructure scripts, and deployment preparation.</p><div class="work-tags"><span>Full stack</span><span>CI/CD</span><span>Docker</span><span>Cloud</span></div></div></article>
-        <article class="experience-item reveal"><div class="date">JUL - AUG 2024</div><div><h3 data-i18n="internTitle">Software Engineer Intern</h3><p class="company">Ashl Communication & IT / Jeddah</p><p data-i18n="internCopy">Trained on software products, internal tools, and sales workflows. Tested key website flows and reported a broken primary action with reproduction steps that helped the team resolve the issue.</p><div class="work-tags"><span>QA</span><span>Web testing</span><span>Product knowledge</span></div></div></article>
-      </div>
-    </section>
+    <section class="career-section" id="experience"><div class="wrap career-grid">
+      <div class="career-column"><h2 data-i18n="experience">Experience</h2><div class="career-rule"></div><div class="career-timeline"><article class="career-item reveal"><span class="timeline-dot active"></span><div><h3 data-i18n="freelanceTitle">Freelance Full-Stack & DevOps Engineer</h3><p data-i18n="freelanceCopy">Build portfolio websites and custom web applications for clients. Handle UI development, backend integration, containers, CI/CD workflows, infrastructure scripts, and deployment preparation.</p></div><time>2024 - <span data-i18n="present">Present</span></time></article><article class="career-item reveal"><span class="timeline-dot"></span><div><h3 data-i18n="internTitle">Software Engineer Intern</h3><p class="company">Ashl Communication & IT</p><p data-i18n="internCopy">Trained on software products, internal tools, and sales workflows. Tested key website flows and reported a broken primary action with reproduction steps that helped the team resolve the issue.</p></div><time>Jul - Aug 2024</time></article></div></div>
+      <div class="career-column" id="education"><h2 data-i18n="education">Education</h2><div class="career-rule"></div><div class="career-timeline"><article class="career-item reveal"><span class="timeline-dot"></span><div><h3 data-i18n="degree">Bachelor of Computer Engineering</h3><p>Hadhramout University</p></div><time>2025</time></article></div><h2 class="cert-heading" data-i18n="certifications">Certifications</h2><div class="career-rule"></div><div class="mini-certs"><article class="mini-cert reveal"><img src="https://cdn.simpleicons.org/hashicorp/844fba" alt="HashiCorp"><span>HashiCorp Certified: Terraform Associate</span></article><article class="mini-cert reveal"><img src="https://cdn.simpleicons.org/oracle/f80000" alt="Oracle"><span>OCI 2025 Certified Foundations Associate</span></article><article class="mini-cert reveal"><img src="https://cdn.simpleicons.org/oracle/f80000" alt="Oracle"><span>OCI 2025 Certified Architect Associate</span></article></div></div>
+    </div></section>
 
     <section class="section skills-section" id="skills"><div class="wrap">
       <div class="section-title"><p class="eyebrow">02 / <span data-i18n="skills">SKILLS</span></p><h2 data-i18n="skillsTitle">Tools I use to build and run software.</h2></div>
@@ -64,7 +59,6 @@
       </div>
     </section>
 
-    <section class="section credentials-section" id="credentials"><div class="wrap"><div class="section-title"><p class="eyebrow">04 / <span data-i18n="credentials">CREDENTIALS</span></p><h2 data-i18n="credentialsTitle">Education and cloud certifications.</h2></div><div class="credentials-grid"><article class="education-card reveal"><div class="credential-icon"><i data-lucide="graduation-cap"></i></div><p class="eyebrow" data-i18n="education">EDUCATION</p><h3 data-i18n="degree">Bachelor of Computer Engineering</h3><p>Hadhramout University</p><span class="credential-year">2025</span></article><div class="cert-list"><article class="cert-card reveal"><div class="badge hashicorp">H</div><div><h3>HashiCorp Certified: Terraform Associate</h3><p data-i18n="terraformBadge">Infrastructure as Code</p></div></article><article class="cert-card reveal"><div class="badge oracle">OCI</div><div><h3>Oracle Cloud Infrastructure 2025 Certified Foundations Associate</h3><p data-i18n="foundationBadge">Cloud Foundations</p></div></article><article class="cert-card reveal"><div class="badge oracle">OCI</div><div><h3>Oracle Cloud Infrastructure 2025 Certified Architect Associate</h3><p data-i18n="architectBadge">Cloud Architecture</p></div></article></div></div></div></section>
 
     <section class="contact-section" id="contact"><div class="wrap"><p class="eyebrow">05 / <span data-i18n="contact">CONTACT</span></p><h2 data-i18n="contactTitle">Have a role or project in mind?</h2><p data-i18n="contactCopy">Email me directly or connect through GitHub and LinkedIn.</p><div class="contact-actions"><a class="contact-main" href="mailto:bader.b2001@gmail.com">bader.b2001@gmail.com <i data-lucide="arrow-up-right"></i></a><a class="social-button" href="https://github.com/bader2424" target="_blank" rel="noreferrer"><i data-lucide="github"></i> GitHub</a><a class="social-button" href="https://linkedin.com/in/bader-bahashwan-25108731b" target="_blank" rel="noreferrer"><i data-lucide="linkedin"></i> LinkedIn</a></div></div></section>
   </main>
