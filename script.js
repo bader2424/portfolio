@@ -17,7 +17,7 @@ Object.assign(copy.en,{intro:"Full-Stack & DevOps Engineer",summary:"I build ful
 document.querySelector('#languageToggle').innerHTML=lang==='ar'?'<span>EN</span>':'<span>AR</span>';
 document.querySelectorAll('.project-item').forEach(project=>{const repo=project.querySelector('.repo-button');project.dataset.action='View full project on GitHub';project.classList.add('open');project.querySelector('.project-toggle').setAttribute('aria-expanded','true');project.setAttribute('role','link');project.setAttribute('tabindex','0');project.addEventListener('click',event=>{if(event.target.closest('a'))return;window.open(repo.href,'_blank','noopener')});project.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();window.open(repo.href,'_blank','noopener')}})});
 setLanguage(lang,false);
-function refreshModernLabels(){document.querySelector('#languageToggle').innerHTML=lang==='ar'?'<span>EN</span>':'<span>AR</span>';document.querySelectorAll('.project-item').forEach(item=>item.dataset.action=lang==='ar'?'Open project on GitHub':'View full project on GitHub')}
+function refreshModernLabels(){document.querySelector('#languageToggle').innerHTML=lang==='ar'?'<span>EN</span>':'<span>AR</span>';document.querySelectorAll('.project-item').forEach(item=>item.dataset.action=lang==='ar'?'افتح المشروع على GitHub':'View full project on GitHub');document.querySelectorAll('.credential-link').forEach(link=>{link.childNodes[0].textContent=lang==='ar'?'عرض الشهادة ':'View credential '});document.querySelectorAll('.project-index').forEach((index,position)=>{index.textContent=lang==='ar'?['٠١','٠٢','٠٣','٠٤'][position]:String(position+1).padStart(2,'0')});if(lang==='ar'){const titles=[['StayOps','منصة حجوزات الضيافة'],['OpsPilot','منصة متابعة صحة الخدمات والإصدارات'],['Production-Style Microservice DevOps Portfolio','مشروع خدمات مصغّرة بأسلوب إنتاجي'],['ServeMe','سوق الخدمات الاجتماعية']];document.querySelectorAll('.project-toggle strong').forEach((title,index)=>{const [name,description]=titles[index];title.classList.add('project-title-split');title.innerHTML=`<span class="project-title-name">${name}</span><span class="project-title-description">— ${description}</span>`})}else document.querySelectorAll('.project-toggle strong').forEach(title=>title.classList.remove('project-title-split'));document.querySelector('#footerName').textContent=lang==='ar'?'بدر باحشوان':'Bader Bahashwan';const contactTooltips=lang==='ar'?['فتح البريد الإلكتروني','فتح GitHub','فتح LinkedIn','فتح WhatsApp','الاتصال بالرقم','نسخ اسم المستخدم في Discord']:['Open email','Open GitHub','Open LinkedIn','Open WhatsApp','Call phone number','Copy Discord username'];document.querySelectorAll('.contact-layout [data-tooltip]').forEach((item,index)=>item.dataset.tooltip=contactTooltips[index]);document.querySelector('.discord-contact').title=contactTooltips[5]}
 refreshModernLabels();
 document.querySelector('#languageToggle').addEventListener('click',()=>setTimeout(refreshModernLabels,0));
 Object.assign(copy.ar,{intro:"مهندس Full-Stack و DevOps",summary:"أبني تطبيقات ويب كاملة وواجهات API وبنية سحابية ومسارات CI/CD. أعمل على الواجهة وواجهة البرمجة وقاعدة البيانات والنشر والمراقبة.",seeExperience:"تحميل السيرة الذاتية",emailMe:"تواصل معي",skillsTitle:"تقنياتي",programmingWeb:"البرمجة وتطوير الويب",devops:"DevOps",cloudData:"السحابة وقواعد البيانات",observability:"الرصد والمراقبة وأنظمة التشغيل",operatingSystems:"أنظمة التشغيل",contactTitle:"تواصل",contactCopy:"للوظائف أو العمل الحر أو أسئلة المشاريع، تواصل معي هنا.",projectNote:"اضغط على أي مشروع لفتح مستودعه على GitHub."});
@@ -69,3 +69,57 @@ document.querySelector('#contact > .wrap > .eyebrow')?.remove();
 document.querySelectorAll('.mini-cert > div > span').forEach((label,index)=>{if(index===1)label.textContent='OCI 2025 Certified Architect';if(index===2)label.textContent='OCI 2025 Certified Foundations';});
 const copyDiscord=async()=>{try{await navigator.clipboard.writeText('bader_2424');const label=discordContact.querySelector('.discord-handle');label.textContent='Copied';setTimeout(()=>label.textContent='bader_2424',1400)}catch{}};
 discordContact.addEventListener('click',copyDiscord);
+
+Object.assign(copy.ar,{
+  navExperience:"الخبرات",
+  navProjects:"المشاريع",
+  navSkills:"التقنيات",
+  navContact:"تواصل",
+  intro:"مهندس Full-Stack وDevOps",
+  hello:"مرحباً، أنا",
+  summary:"أطوّر تطبيقات ويب متكاملة، من الواجهة الأمامية وواجهات الـ API الخلفية إلى البنية التحتية السحابية وعمليات CI/CD. كما أعمل على قواعد البيانات، والنشر، والمراقبة، و DevOps.",
+  seeExperience:"تحميل السيرة الذاتية",
+  emailMe:"عرض المشاريع",
+  experience:"الخبرات",
+  freelanceTitle:"مهندس Full-Stack و DevOps مستقل",
+  freelanceCopy:"أبني مواقع لعرض الأعمال وتطبيقات ويب مخصصة للعملاء. أتولى تطوير واجهة المستخدم وربطها بالخدمات الخلفية، والعمل بـ Containers، وإعداد عمليات CI/CD وسكربتات البنية التحتية، وتهيئة التطبيق للنشر.",
+  internTitle:"متدرب مهندس برمجيات",
+  internCompany:"أسهل للاتصالات وتقنية المعلومات",
+  internCopy:"تعرّفت خلال التدريب على منتجات الشركة البرمجية وأدواتها الداخلية ومسارات عمل المبيعات. اختبرت المسارات الأساسية في الموقع، وبلّغت عن زر رئيسي لا يعمل، وأرفقت خطوات لإعادة إنتاج المشكلة، مما ساعد الفريق على إصلاحه.",
+  education:"التعليم",
+  freelanceDates:"٢٠٢٤ - حتى الآن",
+  internDates:"يوليو - أغسطس ٢٠٢٤",
+  educationDates:"٢٠٢٠ - ٢٠٢٥",
+  degree:"بكالوريوس هندسة الحاسب",
+  certifications:"الشهادات",
+  skillsTitle:"تقنياتي",
+  programmingWeb:"البرمجة وتطوير الويب",
+  devops:"DevOps والإطلاق",
+  cloudData:"السحابة وقواعد البيانات",
+  observability:"الرصد والمراقبة وأنظمة التشغيل",
+  projectsTitle:"مشاريع مختارة",
+  p1Label:"منصة ويب متكاملة",
+  p1Title:"StayOps — منصة حجوزات الضيافة",
+  p1Copy:"منصة حجوزات بصلاحيات مختلفة للعملاء والمضيفين والمديرين. تشمل حجز العقارات، والمصادقة، والإشراف، والمدفوعات، والمراجعات، وسكربتات النشر.",
+  p2Label:"أداة تشغيل داخلية",
+  p2Title:"OpsPilot — منصة متابعة صحة الخدمات والإصدارات",
+  p2Copy:"لوحة داخلية لمتابعة الخدمات وعمليات النشر والحالة الصحية والحوادث وسجلات التدقيق، مع تقارير CI/CD عبر مفاتيح API للخدمات.",
+  p3Label:"بنية سحابية",
+  p3Title:"Production-Style Microservice DevOps Portfolio — مشروع خدمات مصغّرة بأسلوب إنتاجي",
+  p3Copy:"نشر OpenTelemetry Astronomy Shop على Amazon EKS باستخدام GitOps والبنية التحتية ككود، مع المقاييس والسجلات والتتبعات ورؤية واضحة لموارد AWS.",
+  p4Label:"سوق خدمات",
+  p4Title:"ServeMe — سوق الخدمات الاجتماعية",
+  p4Copy:"سوق لحجز خدمات الزفاف والتخرج والسياحة والفعاليات، مع مسارات عمل للعملاء ومقدمي الخدمات والمديرين.",
+  contactTitle:"تواصل",
+  contactCopy:"للعمل أو التعاون في مشروع، تواصل معي.",
+  contactLocation:"جدة، المملكة العربية السعودية",
+  terraformIssued:"أكتوبر ٢٠٢٥",
+  ociArchitectIssued:"سبتمبر ٢٠٢٥",
+  ociFoundationIssued:"سبتمبر ٢٠٢٥"
+});
+
+Object.assign(copy.en,{freelanceDates:"2024 - Present",internDates:"Jul - Aug 2024",educationDates:"2020 - 2025",internCompany:"Ashl Communication & IT",terraformIssued:"Oct 2025",ociArchitectIssued:"Sep 2025",ociFoundationIssued:"Sep 2025",summary:"I build full-stack web apps, from frontend interfaces and backend APIs to cloud infrastructure and CI/CD pipelines. I also work on databases, deployment, monitoring, and DevOps.",p1Copy:"Role-based booking platform for customers, hosts, and admins. Built around property booking, authentication, moderation, payments, reviews, and deployment scripts."});
+Object.assign(copy.en,{p1Title:"StayOps — Hospitality Booking Platform",p2Title:"OpsPilot — DevOps Health & Release Tracking",p3Title:"Production-Style Microservice DevOps Portfolio",p4Title:"ServeMe — Social Services Marketplace"});
+
+setLanguage(lang,false);
+refreshModernLabels();
