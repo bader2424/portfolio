@@ -484,10 +484,11 @@ html[dir="rtl"] .scroll-progress { inset: 0 0 auto auto; transform-origin: right
 }
 
 .mini-certs::before {
+  display: block;
   content: "";
   position: absolute;
-  top: 8px;
-  bottom: 8px;
+  top: 13px;
+  bottom: 13px;
   left: 5px;
   width: 1px;
   background: #38424c;
@@ -503,6 +504,9 @@ html[dir="rtl"] .scroll-progress { inset: 0 0 auto auto; transform-origin: right
   color: var(--text);
   font-size: .82rem;
   line-height: 1.45;
+  text-decoration: none;
+  transition: color .2s ease;
+  padding-right: 126px;
 }
 
 .mini-cert::before {
@@ -516,11 +520,101 @@ html[dir="rtl"] .scroll-progress { inset: 0 0 auto auto; transform-origin: right
   background: #9da8b6;
 }
 
+.mini-cert:not(:last-child)::after { display: none; }
+
 .mini-cert img { width: 22px; height: 22px; padding: 4px; }
+.mini-cert > div { display: grid; gap: 2px; }
+.mini-cert small,
+.credential-link {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  color: var(--lime);
+  font: 500 .66rem "DM Mono", monospace;
+  white-space: nowrap;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.credential-link { display: inline-flex; align-items: center; gap: 5px; opacity: 0; transform: translateY(3px); }
+.credential-link svg { width: 13px; height: 13px; }
+.mini-cert:hover { color: var(--lime); }
+.mini-cert:hover small { opacity: 0; transform: translateY(-3px); }
+.mini-cert:hover .credential-link { opacity: 1; transform: none; }
 
 html[dir="rtl"] .mini-certs { padding-left: 0; padding-right: 25px; }
 html[dir="rtl"] .mini-certs::before { left: auto; right: 5px; }
 html[dir="rtl"] .mini-cert::before { left: auto; right: -25px; }
+html[dir="rtl"] .mini-cert { padding-right: 0; padding-left: 126px; }
+html[dir="rtl"] .mini-cert small,
+html[dir="rtl"] .credential-link { right: auto; left: 0; }
+
+@media (max-width: 760px) {
+  .mini-cert { padding-right: 0; display: grid; grid-template-columns: 22px 1fr; }
+  .mini-cert small,
+  .credential-link { position: static; grid-column: 2; margin-top: 2px; }
+  .credential-link { display: none; }
+  .mini-cert:hover small { opacity: 1; transform: none; }
+}
+
+#contact p.contact-location { margin: 7px 0 0; color: var(--lime); font: 500 .72rem "DM Mono", monospace; }
+
+/* Hero actions share the navigation's restrained, technical surface. */
+.hero-actions { gap: 10px; }
+.hero-actions .button {
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 7px;
+  font: 700 .69rem "DM Mono", monospace;
+  letter-spacing: .03em;
+  transition: background .22s ease, border-color .22s ease, color .22s ease;
+}
+
+.hero-actions .primary {
+  background: var(--lime);
+  border-color: var(--lime);
+  color: #101419;
+}
+
+.hero-actions .primary:hover { background: #d8ff8e; border-color: #d8ff8e; }
+.hero-actions .secondary { background: rgba(199, 246, 106, .045); border-color: rgba(199, 246, 106, .36); color: var(--text); }
+.hero-actions .secondary:hover { background: rgba(199, 246, 106, .12); border-color: var(--lime); color: var(--lime); }
+
+/* Tighter desktop rhythm after the hero and between major sections. */
+@media (min-width: 761px) {
+  .hero {
+    min-height: min(640px, calc(100vh - 104px));
+    padding-bottom: 72px;
+  }
+
+  .section,
+  .skills-section { padding-top: 56px; padding-bottom: 56px; }
+  .career-section { padding-top: 62px; padding-bottom: 62px; }
+  .contact-section { padding-top: 56px; padding-bottom: 62px; }
+}
+
+/* Project repository controls match the hero and navigation controls. */
+.repo-button {
+  min-height: 38px;
+  margin-left: auto;
+  padding: 0 11px;
+  border-radius: 7px;
+  border-color: rgba(199, 246, 106, .36);
+  background: rgba(199, 246, 106, .045);
+  color: var(--text);
+  font: 700 .67rem "DM Mono", monospace;
+  letter-spacing: .03em;
+  transition: background .22s ease, border-color .22s ease, color .22s ease;
+  transform: none !important;
+}
+
+.repo-button:hover {
+  background: rgba(199, 246, 106, .12);
+  border-color: var(--lime);
+  color: var(--lime);
+  transform: none !important;
+}
+
+.repo-button svg { width: 15px; height: 15px; }
+html[dir="rtl"] .repo-button { margin-left: 0; margin-right: auto; }
 
 /* Pin the navigation itself to the viewport center. */
 .topbar {
