@@ -9,8 +9,9 @@ function setLanguage(next,animate=true){lang=next;const d=copy[lang];document.do
 document.querySelector('#languageToggle').addEventListener('click',()=>setLanguage(lang==='en'?'ar':'en'));
 document.querySelectorAll('.project-toggle').forEach(button=>button.addEventListener('click',()=>{const item=button.closest('.project-item'),willOpen=!item.classList.contains('open');document.querySelectorAll('.project-item').forEach(project=>{project.classList.remove('open');project.querySelector('.project-toggle').setAttribute('aria-expanded','false')});if(willOpen){item.classList.add('open');button.setAttribute('aria-expanded','true')}}));
 document.querySelectorAll('.project-item').forEach(project=>{project.classList.add('open');project.querySelector('.project-toggle').setAttribute('aria-expanded','true')});
-document.querySelector('#contact .wrap')?.classList.add('reveal');
-const observer=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('visible',entry.isIntersecting)),{threshold:0,rootMargin:'0px 0px -4% 0px'});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('.section-title, .career-column > h2, .contact-section h2, .contact-section h2 + p, .contact-layout').forEach(el=>el.classList.add('reveal','section-reveal'));
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.intersectionRatio>=.5)entry.target.classList.add('visible');else if(!entry.isIntersecting)entry.target.classList.remove('visible');}),{threshold:[0,.5]});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 document.querySelector('#year').textContent=new Date().getFullYear();setLanguage(lang);if(window.lucide)window.lucide.createIcons();
 Object.assign(copy.en,{intro:"Full-Stack & DevOps Engineer",summary:"I build full-stack web apps, backend APIs, cloud infrastructure, and CI/CD pipelines. I can work on the interface, the API, the database, the deployment, and the monitoring around it.",seeExperience:"Download CV",emailMe:"Contact me",skillsTitle:"My Stack",programmingWeb:"Programming & Web Development",observability:"Observability, Monitoring & OS",operatingSystems:"Operating Systems",contactTitle:"Contact",contactCopy:"For roles, freelance work, or project questions, reach me here.",projectNote:"Click any project to open its GitHub repo.",p1Copy:"Role-based booking platform for guests, hosts, and admins. Built around property booking, authentication, moderation, payments, reviews, and deployment scripts.",p2Copy:"Internal dashboard for services, deployments, health status, incidents, and audit logs, with CI/CD reporting through service API keys.",p3Copy:"OpenTelemetry Astronomy Shop deployed on Amazon EKS with GitOps, infrastructure as code, metrics, logs, traces, and AWS visibility.",p4Copy:"Marketplace for booking wedding, graduation, tourism, and event services, with customer, provider, and admin workflows.",p5Copy:"Local k3s platform managed with Rancher, Helm, Argo CD, monitoring, and code/container security checks."});
 document.querySelector('#languageToggle').innerHTML=lang==='ar'?'<span>EN</span>':'<span>AR</span>';
@@ -37,11 +38,25 @@ window.addEventListener('scroll',()=>{const currentScrollY=window.scrollY;if(win
 const navLinks=[...document.querySelectorAll('.nav a[href^="#"]')];
 const setActiveNav=id=>navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')===`#${id}`));
 navLinks.forEach(link=>link.addEventListener('click',()=>setActiveNav(link.getAttribute('href').slice(1))));
-const sectionSpy=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)setActiveNav(entry.target.id)}),{rootMargin:'-26% 0px -62% 0px',threshold:0});
-['experience','projects','skills','contact'].forEach(id=>sectionSpy.observe(document.querySelector(`#${id}`)));
-const clearHeroNav=()=>{if(window.scrollY<document.querySelector('#experience').offsetTop-130)setActiveNav('');};
-window.addEventListener('scroll',clearHeroNav,{passive:true});
-clearHeroNav();
+const navSections=['experience','projects','skills','contact'].map(id=>document.querySelector(`#${id}`));
+const heroSection=document.querySelector('#home');
+const scrollProgress=document.querySelector('.scroll-progress');
+const allowScrollMotion=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const syncScrollState=()=>{
+  const trigger=window.innerHeight*.7;
+  let activeSection='';
+  navSections.forEach(section=>{if(section.getBoundingClientRect().top<=trigger)activeSection=section.id;});
+  setActiveNav(activeSection);
+  const scrollableHeight=document.documentElement.scrollHeight-window.innerHeight;
+  scrollProgress.style.transform=`scaleX(${scrollableHeight>0?window.scrollY/scrollableHeight:0})`;
+  if(allowScrollMotion){
+    const progress=Math.min(window.scrollY/(heroSection.offsetHeight*.65),1);
+    heroSection.style.opacity=String(1-progress*.18);
+    heroSection.style.transform=`translateY(-${progress*12}px)`;
+  }
+};
+window.addEventListener('scroll',syncScrollState,{passive:true});
+syncScrollState();
 const discordContact=document.querySelector('.discord-contact');
 document.querySelector('#contact > .wrap > .eyebrow')?.remove();
 const copyDiscord=async()=>{try{await navigator.clipboard.writeText('bader_2424');const label=discordContact.querySelector('.discord-handle');label.textContent='Copied';setTimeout(()=>label.textContent='bader_2424',1400)}catch{}};
