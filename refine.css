@@ -808,3 +808,90 @@ footer {
   -webkit-mask: url("https://cdn.simpleicons.org/discord") center / contain no-repeat;
   mask: url("https://cdn.simpleicons.org/discord") center / contain no-repeat;
 }
+
+/* Compact skill groups keep the grid deliberate without wasting vertical space. */
+.skills-section {
+  padding-top: 82px;
+  padding-bottom: 82px;
+}
+
+.skills-section .section-title {
+  margin-bottom: 30px;
+}
+
+.skill-group {
+  min-height: 0;
+  padding: 20px 24px 21px;
+  border-color: rgba(255, 255, 255, .12);
+  border-radius: 10px;
+}
+
+.skill-group h3 {
+  margin-bottom: 14px;
+  letter-spacing: .1em;
+}
+
+.skill-tags,
+.work-tags {
+  gap: 7px;
+}
+
+.skill-tags span {
+  background: rgba(199, 246, 106, .055);
+  border-color: rgba(199, 246, 106, .38);
+  font-weight: 600;
+  font-size: .68rem;
+  padding: 6px 10px;
+}
+
+@media (max-width: 650px) {
+  .skills-section { padding-top: 72px; padding-bottom: 72px; }
+  .skills-section .section-title { margin-bottom: 24px; }
+  .skill-group { padding: 19px; }
+}
+
+/* Replays whenever content re-enters the viewport, including navigation jumps. */
+.reveal {
+  transform: translateY(22px);
+  transition: opacity .85s cubic-bezier(.22, 1, .36, 1), transform .85s cubic-bezier(.22, 1, .36, 1);
+}
+
+/* Clearer category hierarchy and tighter section rhythm. */
+.section { padding-top: 84px; padding-bottom: 84px; }
+.career-section { padding-top: 90px; padding-bottom: 86px; }
+.contact-section { padding-top: 84px; padding-bottom: 88px; }
+
+.skill-group h3 { color: var(--text); font-size: .71rem; font-weight: 700; letter-spacing: .075em; margin-bottom: 19px; }
+.skill-tags span,
+.work-tags span { color: #cfe790; border-color: rgba(199, 246, 106, .28); background: rgba(199, 246, 106, .045); font-weight: 600; font-size: .68rem; padding: 6px 10px; }
+.project-toggle small { color: var(--lime); }
+.project-footer .work-tags { margin-top: 0; }
+
+/* Project tags intentionally match the My Stack tags exactly. */
+.project-item .work-tags span {
+  color: #cfe790 !important;
+  border: 1px solid rgba(199, 246, 106, .28) !important;
+  border-radius: 999px;
+  background: rgba(199, 246, 106, .045) !important;
+  font: 600 .68rem "DM Mono", monospace !important;
+  padding: 6px 10px !important;
+}
+
+@media (min-width: 761px) {
+  .hero { padding-top: 84px; }
+}
+
+.project-toggle strong { display: block; }
+.project-detail { padding-left: 44px; }
+.project-detail > p { margin-top: 0; }
+
+.mini-cert img { padding: 4px; background: #fff; }
+html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 44px; }
+
+@media (max-width: 760px) {
+  .section { padding-top: 70px; padding-bottom: 70px; }
+  .career-section { padding-top: 72px; padding-bottom: 70px; }
+  .contact-section { padding-top: 72px; padding-bottom: 74px; }
+  .project-detail { padding-left: 32px; }
+  html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 32px; }
+}
