@@ -92,7 +92,7 @@ Object.assign(copy.ar,{
   educationDates:"٢٠٢٠ - ٢٠٢٥",
   degree:"بكالوريوس هندسة الحاسب",
   certifications:"الشهادات",
-  skillsTitle:"تقنياتي",
+  skillsTitle:"مجموعة تقنياتي",
   programmingWeb:"البرمجة وتطوير الويب",
   devops:"DevOps والإطلاق",
   cloudData:"السحابة وقواعد البيانات",

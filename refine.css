@@ -1117,6 +1117,20 @@ html[dir="rtl"] .hero h1 {
   line-height: 1.06;
 }
 
+html[dir="rtl"] .nav a {
+  padding: 8px 12px;
+  font: 700 .74rem "Noto Kufi Arabic", Manrope, sans-serif;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+html[dir="ltr"] .nav a {
+  padding: 8px 12px;
+  font: 700 .74rem "DM Mono", monospace;
+  letter-spacing: .04em;
+  line-height: 1.4;
+}
+
 html[dir="rtl"] .hero .eyebrow,
 html[dir="rtl"] .hero-summary {
   direction: rtl;
@@ -1144,7 +1158,7 @@ html[dir="rtl"] .hero-actions .button {
 }
 
 html[dir="rtl"] .skill-group h3 {
-  color: var(--lime);
+  color: var(--text);
   font: 700 .78rem "Noto Kufi Arabic", Manrope, sans-serif;
   letter-spacing: 0;
   line-height: 1.6;
