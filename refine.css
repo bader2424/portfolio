@@ -466,6 +466,7 @@ html[dir="rtl"] .scroll-progress { inset: 0 0 auto auto; transform-origin: right
 .career-rule { display: none; }
 
 @media (min-width: 761px) {
+  .hero { padding-top: 70px; }
   .section,
   .skills-section { padding-top: 72px; padding-bottom: 72px; }
   .career-section { padding-top: 78px; padding-bottom: 74px; }
@@ -574,21 +575,21 @@ html[dir="rtl"] .credential-link { right: auto; left: 0; }
   color: #101419;
 }
 
-.hero-actions .primary:hover { background: #d8ff8e; border-color: #d8ff8e; }
+.hero-actions .primary:hover { background: #101419; border-color: var(--lime); color: var(--lime); }
 .hero-actions .secondary { background: rgba(199, 246, 106, .045); border-color: rgba(199, 246, 106, .36); color: var(--text); }
-.hero-actions .secondary:hover { background: rgba(199, 246, 106, .12); border-color: var(--lime); color: var(--lime); }
+.hero-actions .secondary:hover { background: var(--lime); border-color: var(--lime); color: #101419; }
 
 /* Tighter desktop rhythm after the hero and between major sections. */
 @media (min-width: 761px) {
   .hero {
-    min-height: min(640px, calc(100vh - 104px));
-    padding-bottom: 72px;
+    min-height: min(580px, calc(100vh - 150px));
+    padding-bottom: 60px;
   }
 
   .section,
-  .skills-section { padding-top: 56px; padding-bottom: 56px; }
-  .career-section { padding-top: 62px; padding-bottom: 62px; }
-  .contact-section { padding-top: 56px; padding-bottom: 62px; }
+  .skills-section { padding-top: 21px; padding-bottom: 21px; }
+  .career-section { padding-top: 24px; padding-bottom: 24px; }
+  .contact-section { padding-top: 21px; padding-bottom: 24px; }
 }
 
 /* Project repository controls match the hero and navigation controls. */
@@ -607,14 +608,24 @@ html[dir="rtl"] .credential-link { right: auto; left: 0; }
 }
 
 .repo-button:hover {
-  background: rgba(199, 246, 106, .12);
+  background: var(--lime);
   border-color: var(--lime);
-  color: var(--lime);
+  color: #101419;
   transform: none !important;
 }
 
 .repo-button svg { width: 15px; height: 15px; }
 html[dir="rtl"] .repo-button { margin-left: 0; margin-right: auto; }
+
+footer { justify-content: center; text-align: center; }
+
+/* Final desktop spacing: keep sections close for faster scanning. */
+@media (min-width: 761px) {
+  .section,
+  .skills-section { padding-top: 18px; padding-bottom: 18px; }
+  .career-section { padding-top: 22px; padding-bottom: 22px; }
+  .contact-section { padding-top: 18px; padding-bottom: 22px; }
+}
 
 /* Pin the navigation itself to the viewport center. */
 .topbar {
@@ -1077,4 +1088,12 @@ html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 44px; }
   .contact-section { padding-top: 72px; padding-bottom: 74px; }
   .project-detail { padding-left: 32px; }
   html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 32px; }
+}
+
+/* Keep desktop sections close together for fast scanning. */
+@media (min-width: 761px) {
+  .section,
+  .skills-section { padding-top: 46px !important; padding-bottom: 46px !important; }
+  .career-section { padding-top: 50px !important; padding-bottom: 50px !important; }
+  .contact-section { padding-top: 46px !important; padding-bottom: 50px !important; }
 }
