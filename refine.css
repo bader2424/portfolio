@@ -383,7 +383,12 @@ html[dir="rtl"] .repo-button {
   width: 1px;
   height: 100%;
   background: #38424c;
+  z-index: 0;
 }
+
+.career-item { isolation: isolate; }
+.timeline-dot,
+.mini-cert::before { z-index: 1; }
 
 .contact-stack {
   display: grid;
@@ -1364,8 +1369,21 @@ html[dir="rtl"] .contact-section {
   }
 
   html[dir="rtl"] .project-footer {
-    display: flex;
-    direction: rtl;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    direction: ltr;
+    align-items: start;
+    gap: 10px;
+  }
+
+  html[dir="rtl"] .project-footer .repo-button {
+    grid-column: 1;
+    align-self: start;
+  }
+
+  html[dir="rtl"] .project-footer .work-tags {
+    grid-column: 2;
+    justify-content: flex-start;
   }
 }
 
