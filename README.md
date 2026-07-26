@@ -27,6 +27,8 @@ cd portfolio
 
 Then open the site:
 
+Double-click `index.html`, or use a terminal command:
+
 ```powershell
 # Windows PowerShell
 start index.html
