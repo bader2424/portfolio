@@ -6,6 +6,8 @@ Object.assign(copy.ar,{p1Copy:"منصة حجوزات للعملاء والمضي
 let lang=localStorage.getItem('portfolio-language')||'en';const nameTarget=document.querySelector('#typedName');
 let nameTypingTimer;let nameTypingRun=0;
 function typeName(text){clearTimeout(nameTypingTimer);const run=++nameTypingRun;nameTarget.textContent='';let i=0;const tick=()=>{if(run!==nameTypingRun)return;nameTarget.textContent+=text[i]||'';i++;if(i<=text.length)nameTypingTimer=setTimeout(tick,135)};tick()}
+if('scrollRestoration'in history)history.scrollRestoration='manual';
+window.addEventListener('pageshow',()=>{if(!window.location.hash)requestAnimationFrame(()=>window.scrollTo(0,0));});
 function setLanguage(next,animate=true){lang=next;const d=copy[lang];document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=d[el.dataset.i18n]);document.querySelector('#languageToggle').textContent=lang==='ar'?'English':'العربية';localStorage.setItem('portfolio-language',lang);if(animate)typeName(d.name)}
 document.querySelector('#languageToggle').addEventListener('click',()=>setLanguage(lang==='en'?'ar':'en'));
 document.querySelectorAll('.project-toggle').forEach(button=>button.addEventListener('click',()=>{const item=button.closest('.project-item'),willOpen=!item.classList.contains('open');document.querySelectorAll('.project-item').forEach(project=>{project.classList.remove('open');project.querySelector('.project-toggle').setAttribute('aria-expanded','false')});if(willOpen){item.classList.add('open');button.setAttribute('aria-expanded','true')}}));
