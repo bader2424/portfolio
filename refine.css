@@ -1097,8 +1097,8 @@ html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 44px; }
   .section { padding-top: 70px; padding-bottom: 70px; }
   .career-section { padding-top: 72px; padding-bottom: 70px; }
   .contact-section { padding-top: 72px; padding-bottom: 74px; }
-  .project-detail { padding-left: 32px; }
-  html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 32px; }
+  .project-detail { padding-left: 42px; }
+  html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 42px; }
   #projects { padding-left: 20px; padding-right: 20px; }
 }
 
