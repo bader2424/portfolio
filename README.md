@@ -6,13 +6,7 @@ Live site: [bader2424.github.io/portfolio](https://bader2424.github.io/portfolio
 
 ## Run locally
 
-No build step or dependencies are required.
-
-```powershell
-py -m http.server 8000
-```
-
-Then open `http://localhost:8000`.
+No build step or dependencies are required. Open `index.html` in a modern browser.
 
 ## Customize
 
