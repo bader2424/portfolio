@@ -18,15 +18,26 @@ Do not present this portfolio's personal content or project work as your own.
 
 ## Run locally
 
-No build step is required. With Node.js installed:
+Clone the repository first:
 
 ```bash
 git clone https://github.com/bader2424/portfolio.git
 cd portfolio
-npx serve .
 ```
 
-Open the local URL shown in the terminal.
+Then open the site:
+
+```powershell
+# Windows PowerShell
+Start-Process index.html
+```
+
+```bash
+# macOS Bash
+open index.html
+```
+
+On Linux, use `xdg-open index.html` instead.
 
 ## License
 
