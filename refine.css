@@ -1404,7 +1404,9 @@ html[dir="rtl"] .contact-section {
 }
 
 /* Mobile is navigated through the contact section; the fixed dock blocks content. */
-.contact-dock { display: none !important; }
+@media (max-width: 760px) {
+  .contact-dock { display: none !important; }
+}
 
 @media (max-width: 760px) {
   .hero {
