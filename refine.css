@@ -378,12 +378,18 @@ html[dir="rtl"] .repo-button {
 .career-item:not(:last-child):after {
   content: "";
   position: absolute;
-  top: 13px;
+  top: 19px;
+  bottom: -8px;
   left: -20px;
   width: 1px;
-  height: 100%;
+  height: auto;
   background: #38424c;
+  z-index: 0;
 }
+
+.career-item { isolation: isolate; }
+.timeline-dot,
+.mini-cert::before { z-index: 1; }
 
 .contact-stack {
   display: grid;
@@ -485,14 +491,7 @@ html[dir="rtl"] .scroll-progress { inset: 0 0 auto auto; transform-origin: right
 }
 
 .mini-certs::before {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 13px;
-  bottom: 13px;
-  left: 5px;
-  width: 1px;
-  background: #38424c;
+  display: none;
 }
 
 .mini-cert {
@@ -521,7 +520,16 @@ html[dir="rtl"] .scroll-progress { inset: 0 0 auto auto; transform-origin: right
   background: #9da8b6;
 }
 
-.mini-cert:not(:last-child)::after { display: none; }
+.mini-cert:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: -29px;
+  left: -20px;
+  width: 1px;
+  background: #38424c;
+  z-index: 0;
+}
 
 .mini-cert img { width: 22px; height: 22px; padding: 4px; }
 .mini-cert > div { display: grid; gap: 2px; }
@@ -1079,6 +1087,9 @@ footer {
 .project-detail { padding-left: 44px; }
 .project-detail > p { margin-top: 0; }
 
+/* Projects uses both section and wrap on one element, so restore the shared page gutters. */
+#projects { padding-left: 30px; padding-right: 30px; }
+
 .mini-cert img { padding: 4px; background: #fff; }
 html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 44px; }
 
@@ -1086,8 +1097,9 @@ html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 44px; }
   .section { padding-top: 70px; padding-bottom: 70px; }
   .career-section { padding-top: 72px; padding-bottom: 70px; }
   .contact-section { padding-top: 72px; padding-bottom: 74px; }
-  .project-detail { padding-left: 32px; }
-  html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 32px; }
+  .project-detail { padding-left: 42px; }
+  html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 42px; }
+  #projects { padding-left: 20px; padding-right: 20px; }
 }
 
 /* Keep desktop sections close together for fast scanning. */
@@ -1248,6 +1260,11 @@ html[dir="rtl"] .mini-cert::before {
   right: -25px;
 }
 
+html[dir="rtl"] .mini-cert:not(:last-child)::after {
+  left: auto;
+  right: -20px;
+}
+
 html[dir="rtl"] .mini-cert {
   padding-right: 0;
   padding-left: 142px;
@@ -1365,6 +1382,56 @@ html[dir="rtl"] .contact-section {
 
   html[dir="rtl"] .project-footer {
     display: flex;
+    flex-direction: column;
     direction: rtl;
+    align-items: start;
+    gap: 10px;
+  }
+
+  html[dir="rtl"] .project-footer .repo-button {
+    align-self: start;
+    margin-right: auto;
+    margin-left: 0;
+  }
+
+  html[dir="rtl"] .project-footer .work-tags {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* Mobile is navigated through the contact section; the fixed dock blocks content. */
+.contact-dock { display: none !important; }
+
+@media (max-width: 760px) {
+  .hero {
+    min-height: auto;
+    padding-top: 60px;
+    padding-bottom: 58px;
+  }
+
+  .nav {
+    width: max-content;
+    max-width: calc(100% - 16px);
+    padding: 4px;
+    overflow: hidden;
+  }
+
+  html[dir="ltr"] .nav a,
+  html[dir="rtl"] .nav a {
+    padding: 7px 6px;
+    letter-spacing: 0;
+    line-height: 1.35;
+  }
+
+  html[dir="ltr"] .nav a { font-size: .68rem; }
+  html[dir="rtl"] .nav a { font-size: .72rem; }
+  .language-toggle { padding: 7px; font-size: .62rem; }
+
+  .scroll-top {
+    width: 38px;
+    height: 38px;
+    right: 14px;
+    bottom: 18px;
   }
 }
