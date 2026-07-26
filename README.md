@@ -29,7 +29,7 @@ Then open the site:
 
 ```powershell
 # Windows PowerShell
-Start-Process index.html
+start index.html
 ```
 
 ```bash
