@@ -6,12 +6,13 @@ Live site: [bader2424.github.io/portfolio](https://bader2424.github.io/portfolio
 
 ## Run locally
 
-```bash
+```powershell
 git clone https://github.com/bader2424/portfolio.git
 cd portfolio
+start index.html
 ```
 
-No build step or dependencies are required. Open `index.html` in a modern browser.
+No build step or dependencies are required.
 
 ## Customize
 
