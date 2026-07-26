@@ -1087,6 +1087,9 @@ footer {
 .project-detail { padding-left: 44px; }
 .project-detail > p { margin-top: 0; }
 
+/* Projects uses both section and wrap on one element, so restore the shared page gutters. */
+#projects { padding-left: 30px; padding-right: 30px; }
+
 .mini-cert img { padding: 4px; background: #fff; }
 html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 44px; }
 
@@ -1096,6 +1099,7 @@ html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 44px; }
   .contact-section { padding-top: 72px; padding-bottom: 74px; }
   .project-detail { padding-left: 32px; }
   html[dir="rtl"] .project-detail { padding-left: 0; padding-right: 32px; }
+  #projects { padding-left: 20px; padding-right: 20px; }
 }
 
 /* Keep desktop sections close together for fast scanning. */
