@@ -1410,8 +1410,8 @@ html[dir="rtl"] .contact-section {
   }
 
   .nav {
-    width: calc(100% - 24px);
-    max-width: none;
+    width: max-content;
+    max-width: calc(100% - 16px);
     padding: 4px;
     overflow: hidden;
   }
@@ -1423,7 +1423,7 @@ html[dir="rtl"] .contact-section {
     line-height: 1.35;
   }
 
-  html[dir="ltr"] .nav a { font-size: .62rem; }
+  html[dir="ltr"] .nav a { font-size: .68rem; }
   html[dir="rtl"] .nav a { font-size: .72rem; }
   .language-toggle { padding: 7px; font-size: .62rem; }
 
