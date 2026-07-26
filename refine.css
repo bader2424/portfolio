@@ -1381,20 +1381,21 @@ html[dir="rtl"] .contact-section {
   }
 
   html[dir="rtl"] .project-footer {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    direction: ltr;
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
     align-items: start;
     gap: 10px;
   }
 
   html[dir="rtl"] .project-footer .repo-button {
-    grid-column: 1;
     align-self: start;
+    margin-right: auto;
+    margin-left: 0;
   }
 
   html[dir="rtl"] .project-footer .work-tags {
-    grid-column: 2;
+    width: 100%;
     justify-content: flex-start;
   }
 }
