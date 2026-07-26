@@ -4,16 +4,6 @@ Personal one-page portfolio for a Full-Stack and DevOps engineer.
 
 Live site: [bader2424.github.io/portfolio](https://bader2424.github.io/portfolio/)
 
-## Run locally
-
-```powershell
-git clone https://github.com/bader2424/portfolio.git
-cd portfolio
-start index.html
-```
-
-No build step or dependencies are required.
-
 ## Customize
 
 - Update page structure, contact links, and the resume link in `index.html`.
@@ -27,6 +17,18 @@ The site supports English and Arabic (RTL), responsive layouts, a downloadable C
 You may use this repository as a reference or starting point for your own portfolio. Please replace the personal information, project descriptions, contact links, resume, and certificates before publishing.
 
 Do not present this portfolio's personal content or project work as your own.
+
+## Run locally
+
+No build step is required. With Node.js installed:
+
+```bash
+git clone https://github.com/bader2424/portfolio.git
+cd portfolio
+npx serve .
+```
+
+Open the local URL shown in the terminal.
 
 ## License
 
