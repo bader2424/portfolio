@@ -378,10 +378,11 @@ html[dir="rtl"] .repo-button {
 .career-item:not(:last-child):after {
   content: "";
   position: absolute;
-  top: 13px;
+  top: 19px;
+  bottom: -8px;
   left: -20px;
   width: 1px;
-  height: 100%;
+  height: auto;
   background: #38424c;
   z-index: 0;
 }
@@ -490,14 +491,7 @@ html[dir="rtl"] .scroll-progress { inset: 0 0 auto auto; transform-origin: right
 }
 
 .mini-certs::before {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 13px;
-  bottom: 13px;
-  left: 5px;
-  width: 1px;
-  background: #38424c;
+  display: none;
 }
 
 .mini-cert {
@@ -526,7 +520,16 @@ html[dir="rtl"] .scroll-progress { inset: 0 0 auto auto; transform-origin: right
   background: #9da8b6;
 }
 
-.mini-cert:not(:last-child)::after { display: none; }
+.mini-cert:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: -29px;
+  left: -20px;
+  width: 1px;
+  background: #38424c;
+  z-index: 0;
+}
 
 .mini-cert img { width: 22px; height: 22px; padding: 4px; }
 .mini-cert > div { display: grid; gap: 2px; }
@@ -1251,6 +1254,11 @@ html[dir="rtl"] .mini-certs::before {
 html[dir="rtl"] .mini-cert::before {
   left: auto;
   right: -25px;
+}
+
+html[dir="rtl"] .mini-cert:not(:last-child)::after {
+  left: auto;
+  right: -20px;
 }
 
 html[dir="rtl"] .mini-cert {
