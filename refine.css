@@ -655,10 +655,13 @@ footer { justify-content: center; text-align: center; }
   right: 22px;
   bottom: 22px;
   z-index: 16;
-  display: grid;
+  display: flex;
   width: 42px;
   height: 42px;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
   border: 1px solid rgba(199, 246, 106, .45);
   border-radius: 50%;
   background: #101419;
@@ -672,7 +675,7 @@ footer { justify-content: center; text-align: center; }
 
 .scroll-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .scroll-top:hover { background: var(--lime); color: #101419; }
-.scroll-top svg { width: 19px; }
+.scroll-top svg { display: block; width: 19px; height: 19px; }
 
 @media (max-width: 760px) {
   .topbar { padding: 0 20px; }
