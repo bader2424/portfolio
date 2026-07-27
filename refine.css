@@ -1440,3 +1440,466 @@ html[dir="rtl"] .contact-section {
     bottom: 18px;
   }
 }
+
+/* Final contrast pass: reserve lime for primary headings and actions. */
+.contact-dock { display: none !important; }
+
+.nav .language-toggle {
+  border-inline-start: 1px solid rgba(199, 246, 106, .32);
+  border-radius: 0;
+  margin-inline-start: 4px;
+  padding-inline-start: 12px;
+}
+
+.hero-summary,
+html[dir="ltr"] .hero-summary,
+html[dir="rtl"] .hero-summary {
+  color: #e0e8ef;
+  font-size: 1.08rem;
+  font-weight: 500;
+}
+
+.hero-actions .button,
+.repo-button {
+  color: #f5f8fb;
+  font: 700 .78rem Manrope, sans-serif;
+  letter-spacing: 0;
+}
+
+.hero-actions .primary { color: #101419; }
+.hero-actions .primary:hover { color: var(--lime); }
+
+.skill-tags span,
+.work-tags span,
+.project-item .work-tags span {
+  color: #f1f5f8 !important;
+  border-color: rgba(255, 255, 255, .22) !important;
+  background: rgba(255, 255, 255, .035) !important;
+}
+
+.career-item time,
+.mini-cert small,
+.project-index,
+.project-toggle small,
+html[dir="rtl"] .career-item time,
+html[dir="rtl"] .mini-cert small,
+html[dir="rtl"] .project-index,
+html[dir="rtl"] .project-toggle small {
+  color: #f1f5f8;
+}
+
+.project-toggle strong,
+html[dir="rtl"] .project-toggle strong {
+  color: var(--lime);
+}
+
+.project-item::after { display: none !important; }
+
+/* Readability and interaction cleanup. */
+html[dir="ltr"] .nav a,
+html[dir="ltr"] .language-toggle {
+  font-family: Manrope, sans-serif;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+.skill-tags span,
+.work-tags span,
+.project-item .work-tags span {
+  font-family: Manrope, sans-serif !important;
+  font-size: .75rem !important;
+  font-weight: 600 !important;
+  line-height: 1.25;
+}
+
+.project-toggle small,
+.career-item time,
+.mini-cert small,
+.project-index {
+  font-family: Manrope, sans-serif;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+.hero-summary,
+html[dir="ltr"] .hero-summary,
+html[dir="rtl"] .hero-summary { font-size: 1.1rem; }
+
+.hero {
+  animation: hero-enter .85s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes hero-enter {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+.project-item { cursor: default; }
+.project-item:hover {
+  border-color: rgba(255, 255, 255, .08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .018));
+}
+
+/* One compact stack surface, with categories inside it rather than separate cards. */
+.skill-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px 36px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .025);
+}
+
+.skill-group {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.skill-group:hover { border-color: transparent; transform: none; }
+
+@media (max-width: 760px) {
+  html[dir="ltr"] .nav a,
+  html[dir="ltr"] .language-toggle { font-size: .7rem; }
+
+  .skill-groups {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero { animation: none; }
+}
+
+/* Stronger category hierarchy inside the compact stack panel. */
+.skill-groups { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.skill-group h3 {
+  margin-bottom: 13px;
+  color: var(--lime);
+  font-family: Manrope, sans-serif;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+
+@media (max-width: 960px) {
+  .skill-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .skill-groups { grid-template-columns: 1fr; }
+}
+
+/* Restore an email-first contact row with compact social controls. */
+.contact-layout {
+  display: block;
+  max-width: none;
+  margin-top: 26px;
+}
+
+.contact-layout .contact-email {
+  display: inline-flex;
+  width: auto;
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--lime);
+  font: 700 clamp(1.25rem, 2.3vw, 1.75rem) Manrope, sans-serif;
+}
+
+.contact-layout .contact-email > svg:first-child { color: var(--lime); }
+.contact-layout .contact-email > svg:last-child { display: none; }
+
+.contact-methods {
+  display: flex !important;
+  width: auto;
+  margin-top: 18px;
+  gap: 10px;
+}
+
+.contact-method {
+  display: grid;
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-radius: 6px;
+  background: transparent;
+}
+
+.contact-method > span:not(.whatsapp-icon),
+.contact-method > svg:last-child { display: none; }
+
+.contact-method > svg:first-child,
+.contact-method .whatsapp-icon {
+  width: 19px;
+  height: 19px;
+  color: var(--lime);
+}
+
+.contact-method:hover {
+  border-color: var(--lime);
+  background: rgba(199, 246, 106, .08);
+}
+
+#contact p.contact-location,
+html[dir="rtl"] #contact p.contact-location {
+  margin-top: 13px;
+  color: var(--lime);
+  font: 800 .9rem Manrope, sans-serif;
+  letter-spacing: .01em;
+}
+
+.career-item h3,
+html[dir="rtl"] .career-item h3 { color: var(--lime); }
+
+/* Inline contact controls: email leads, socials follow. */
+.contact-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-layout .contact-email { gap: 10px; }
+
+.contact-layout .contact-email > svg:last-child {
+  display: block;
+  width: 42px;
+  height: 42px;
+  margin-inline-start: 4px;
+  padding: 12px;
+  border: 1px solid rgba(199, 246, 106, .38);
+  border-radius: 6px;
+  color: var(--lime);
+}
+
+.contact-methods {
+  display: flex !important;
+  flex-wrap: nowrap;
+  margin: 0;
+  gap: 8px;
+}
+
+.contact-method {
+  width: 42px;
+  min-height: 42px;
+  border-color: rgba(255, 255, 255, .16);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .025);
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+.contact-method:hover {
+  border-color: var(--lime);
+  background: rgba(199, 246, 106, .1);
+}
+
+@media (max-width: 760px) {
+  .contact-layout { align-items: flex-start; }
+  .contact-layout .contact-email { width: 100%; }
+}
+
+/* Stack categories read as a compact technical inventory, not a set of cards. */
+.skill-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.skill-group {
+  display: grid;
+  grid-template-columns: minmax(190px, 240px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 0;
+}
+
+.skill-group:first-child { padding-top: 0; }
+.skill-group:last-child { padding-bottom: 0; }
+
+.skill-group h3 {
+  margin: 3px 0 0;
+  color: var(--lime);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+  .skill-group {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px 0;
+  }
+
+  .skill-group h3 { margin: 0; }
+}
+
+/* One shared contact-link language: direct, centered, and unboxed. */
+.contact-layout {
+  gap: 26px;
+}
+
+.contact-layout .contact-email {
+  gap: 8px;
+  color: var(--lime);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
+}
+
+.contact-layout .contact-email > svg:last-child {
+  width: 16px;
+  height: 16px;
+  margin-inline-start: 2px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.contact-methods {
+  align-items: center;
+  gap: 22px;
+  padding: 0;
+  border: 0;
+}
+
+.contact-method {
+  display: inline-flex;
+  width: auto;
+  min-height: 0;
+  padding: 0;
+  gap: 7px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #dbe4eb;
+  font: 700 .84rem Manrope, sans-serif;
+  transition: color .16s ease;
+}
+
+.contact-method > span:not(.whatsapp-icon),
+.contact-method > svg:last-child { display: block; }
+
+.contact-method > svg:first-child,
+.contact-method .whatsapp-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--lime);
+}
+
+.contact-method > svg:last-child {
+  width: 14px;
+  height: 14px;
+  color: var(--lime);
+}
+
+.contact-method:hover {
+  border: 0;
+  background: transparent;
+  color: var(--lime);
+}
+
+.contact-layout .contact-email,
+.contact-method,
+.contact-methods {
+  border: 0 !important;
+  box-shadow: none;
+}
+
+.contact-layout [data-tooltip]:hover {
+  background: transparent;
+}
+
+@media (max-width: 760px) {
+  .contact-layout { gap: 18px; }
+  .contact-methods { gap: 16px; }
+}
+
+#experience .career-column:first-child .career-item:first-child p + p {
+  margin-top: 14px;
+}
+
+#experience .career-column:first-child .career-item:nth-child(2) p:not(.company) + p {
+  margin-top: 14px;
+}
+
+/* Official-icon Stack chips, aligned with the GitHub overview treatment. */
+.skill-tags { gap: 7px; }
+.skill-tags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 255, 255, .13) !important;
+  border-radius: 4px;
+  background: #06080b !important;
+  color: #f5f8fb !important;
+  font-size: .76rem !important;
+  font-weight: 700 !important;
+}
+
+.skill-tags span img {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+}
+
+.skill-tags .oci-mark {
+  display: inline-block !important;
+  flex: 0 0 17px;
+  width: 17px;
+  height: 17px;
+  min-width: 17px;
+  padding: 0 !important;
+  border: 3px solid #f80000 !important;
+  border-radius: 50%;
+  background: transparent !important;
+  box-sizing: border-box;
+}
+
+.skill-tags .oci-chip img {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  filter: invert(13%) sepia(89%) saturate(6045%) hue-rotate(1deg) brightness(104%) contrast(119%);
+}
+
+.skills-section .section-title { margin-bottom: 38px; }
+
+@media (max-width: 760px) {
+  .skills-section .section-title { margin-bottom: 30px; }
+}
+
+#contact p.contact-location,
+html[dir="rtl"] #contact p.contact-location { color: #edf1f5; }
+
+.language-toggle:hover { color: #edf1f5 !important; }
+
+html[dir="rtl"] .contact-layout .contact-email {
+  direction: ltr;
+  min-height: 0;
+  padding: 0;
+  gap: 8px;
+  color: var(--lime);
+  font: 700 clamp(1.35rem, 2.2vw, 1.85rem) Manrope, sans-serif;
+}
+
+html[dir="rtl"] .contact-layout .contact-email > svg:last-child {
+  margin-inline-start: 2px;
+}
