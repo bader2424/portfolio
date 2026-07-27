@@ -1528,7 +1528,7 @@ html[dir="ltr"] .hero-summary,
 html[dir="rtl"] .hero-summary { font-size: 1.1rem; }
 
 .hero {
-  animation: hero-enter .7s cubic-bezier(.22, 1, .36, 1) both;
+  animation: hero-enter .85s cubic-bezier(.22, 1, .36, 1) both;
 }
 
 @keyframes hero-enter {
@@ -1752,13 +1752,13 @@ html[dir="rtl"] .career-item h3 { color: var(--lime); }
 
 /* One shared contact-link language: direct, centered, and unboxed. */
 .contact-layout {
-  gap: 18px;
+  gap: 26px;
 }
 
 .contact-layout .contact-email {
   gap: 8px;
   color: var(--lime);
-  font-size: clamp(1rem, 1.5vw, 1.16rem);
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem);
 }
 
 .contact-layout .contact-email > svg:last-child {
@@ -1772,7 +1772,9 @@ html[dir="rtl"] .career-item h3 { color: var(--lime); }
 
 .contact-methods {
   align-items: center;
-  gap: 18px;
+  gap: 22px;
+  padding: 0;
+  border: 0;
 }
 
 .contact-method {
@@ -1784,8 +1786,9 @@ html[dir="rtl"] .career-item h3 { color: var(--lime); }
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: #edf1f5;
+  color: #dbe4eb;
   font: 700 .84rem Manrope, sans-serif;
+  transition: color .16s ease;
 }
 
 .contact-method > span:not(.whatsapp-icon),
@@ -1810,7 +1813,93 @@ html[dir="rtl"] .career-item h3 { color: var(--lime); }
   color: var(--lime);
 }
 
+.contact-layout .contact-email,
+.contact-method,
+.contact-methods {
+  border: 0 !important;
+  box-shadow: none;
+}
+
+.contact-layout [data-tooltip]:hover {
+  background: transparent;
+}
+
 @media (max-width: 760px) {
-  .contact-layout { gap: 14px; }
-  .contact-methods { gap: 14px; }
+  .contact-layout { gap: 18px; }
+  .contact-methods { gap: 16px; }
+}
+
+#experience .career-column:first-child .career-item:first-child p + p {
+  margin-top: 14px;
+}
+
+#experience .career-column:first-child .career-item:nth-child(2) p:not(.company) + p {
+  margin-top: 14px;
+}
+
+/* Official-icon Stack chips, aligned with the GitHub overview treatment. */
+.skill-tags { gap: 7px; }
+.skill-tags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 255, 255, .13) !important;
+  border-radius: 4px;
+  background: #06080b !important;
+  color: #f5f8fb !important;
+  font-size: .76rem !important;
+  font-weight: 700 !important;
+}
+
+.skill-tags span img {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+}
+
+.skill-tags .oci-mark {
+  display: inline-block !important;
+  flex: 0 0 17px;
+  width: 17px;
+  height: 17px;
+  min-width: 17px;
+  padding: 0 !important;
+  border: 3px solid #f80000 !important;
+  border-radius: 50%;
+  background: transparent !important;
+  box-sizing: border-box;
+}
+
+.skill-tags .oci-chip img {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  filter: invert(13%) sepia(89%) saturate(6045%) hue-rotate(1deg) brightness(104%) contrast(119%);
+}
+
+.skills-section .section-title { margin-bottom: 38px; }
+
+@media (max-width: 760px) {
+  .skills-section .section-title { margin-bottom: 30px; }
+}
+
+#contact p.contact-location,
+html[dir="rtl"] #contact p.contact-location { color: #edf1f5; }
+
+.language-toggle:hover { color: #edf1f5 !important; }
+
+html[dir="rtl"] .contact-layout .contact-email {
+  direction: ltr;
+  min-height: 0;
+  padding: 0;
+  gap: 8px;
+  color: var(--lime);
+  font: 700 clamp(1.35rem, 2.2vw, 1.85rem) Manrope, sans-serif;
+}
+
+html[dir="rtl"] .contact-layout .contact-email > svg:last-child {
+  margin-inline-start: 2px;
 }
