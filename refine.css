@@ -1440,3 +1440,57 @@ html[dir="rtl"] .contact-section {
     bottom: 18px;
   }
 }
+
+/* Final contrast pass: reserve lime for primary headings and actions. */
+.contact-dock { display: none !important; }
+
+.nav .language-toggle {
+  border-inline-start: 1px solid rgba(199, 246, 106, .32);
+  border-radius: 0;
+  margin-inline-start: 4px;
+  padding-inline-start: 12px;
+}
+
+.hero-summary,
+html[dir="ltr"] .hero-summary,
+html[dir="rtl"] .hero-summary {
+  color: #e0e8ef;
+  font-size: 1.08rem;
+  font-weight: 500;
+}
+
+.hero-actions .button,
+.repo-button {
+  color: #f5f8fb;
+  font: 700 .78rem Manrope, sans-serif;
+  letter-spacing: 0;
+}
+
+.hero-actions .primary { color: #101419; }
+.hero-actions .primary:hover { color: var(--lime); }
+
+.skill-tags span,
+.work-tags span,
+.project-item .work-tags span {
+  color: #f1f5f8 !important;
+  border-color: rgba(255, 255, 255, .22) !important;
+  background: rgba(255, 255, 255, .035) !important;
+}
+
+.career-item time,
+.mini-cert small,
+.project-index,
+.project-toggle small,
+html[dir="rtl"] .career-item time,
+html[dir="rtl"] .mini-cert small,
+html[dir="rtl"] .project-index,
+html[dir="rtl"] .project-toggle small {
+  color: #f1f5f8;
+}
+
+.project-toggle strong,
+html[dir="rtl"] .project-toggle strong {
+  color: var(--lime);
+}
+
+.project-item::after { display: none !important; }
