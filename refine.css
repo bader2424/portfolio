@@ -1577,3 +1577,88 @@ html[dir="rtl"] .hero-summary { font-size: 1.1rem; }
 @media (prefers-reduced-motion: reduce) {
   .hero { animation: none; }
 }
+
+/* Stronger category hierarchy inside the compact stack panel. */
+.skill-groups { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.skill-group h3 {
+  margin-bottom: 13px;
+  color: var(--lime);
+  font-family: Manrope, sans-serif;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+
+@media (max-width: 960px) {
+  .skill-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .skill-groups { grid-template-columns: 1fr; }
+}
+
+/* Restore an email-first contact row with compact social controls. */
+.contact-layout {
+  display: block;
+  max-width: none;
+  margin-top: 26px;
+}
+
+.contact-layout .contact-email {
+  display: inline-flex;
+  width: auto;
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--lime);
+  font: 700 clamp(1.25rem, 2.3vw, 1.75rem) Manrope, sans-serif;
+}
+
+.contact-layout .contact-email > svg:first-child { color: var(--lime); }
+.contact-layout .contact-email > svg:last-child { display: none; }
+
+.contact-methods {
+  display: flex !important;
+  width: auto;
+  margin-top: 18px;
+  gap: 10px;
+}
+
+.contact-method {
+  display: grid;
+  width: 44px;
+  min-height: 44px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-radius: 6px;
+  background: transparent;
+}
+
+.contact-method > span:not(.whatsapp-icon),
+.contact-method > svg:last-child { display: none; }
+
+.contact-method > svg:first-child,
+.contact-method .whatsapp-icon {
+  width: 19px;
+  height: 19px;
+  color: var(--lime);
+}
+
+.contact-method:hover {
+  border-color: var(--lime);
+  background: rgba(199, 246, 106, .08);
+}
+
+#contact p.contact-location,
+html[dir="rtl"] #contact p.contact-location {
+  margin-top: 13px;
+  color: var(--lime);
+  font: 800 .9rem Manrope, sans-serif;
+  letter-spacing: .01em;
+}
+
+.career-item h3,
+html[dir="rtl"] .career-item h3 { color: var(--lime); }
