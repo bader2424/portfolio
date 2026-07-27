@@ -1662,3 +1662,90 @@ html[dir="rtl"] #contact p.contact-location {
 
 .career-item h3,
 html[dir="rtl"] .career-item h3 { color: var(--lime); }
+
+/* Inline contact controls: email leads, socials follow. */
+.contact-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-layout .contact-email { gap: 10px; }
+
+.contact-layout .contact-email > svg:last-child {
+  display: block;
+  width: 42px;
+  height: 42px;
+  margin-inline-start: 4px;
+  padding: 12px;
+  border: 1px solid rgba(199, 246, 106, .38);
+  border-radius: 6px;
+  color: var(--lime);
+}
+
+.contact-methods {
+  display: flex !important;
+  flex-wrap: nowrap;
+  margin: 0;
+  gap: 8px;
+}
+
+.contact-method {
+  width: 42px;
+  min-height: 42px;
+  border-color: rgba(255, 255, 255, .16);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .025);
+  transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+
+.contact-method:hover {
+  border-color: var(--lime);
+  background: rgba(199, 246, 106, .1);
+}
+
+@media (max-width: 760px) {
+  .contact-layout { align-items: flex-start; }
+  .contact-layout .contact-email { width: 100%; }
+}
+
+/* Stack categories read as a compact technical inventory, not a set of cards. */
+.skill-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.skill-group {
+  display: grid;
+  grid-template-columns: minmax(190px, 240px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.skill-group:first-child { padding-top: 0; }
+.skill-group:last-child { padding-bottom: 0; border-bottom: 0; }
+
+.skill-group h3 {
+  margin: 3px 0 0;
+  color: var(--lime);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 760px) {
+  .skill-group {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 18px 0;
+  }
+
+  .skill-group h3 { margin: 0; }
+}
