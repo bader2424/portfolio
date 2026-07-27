@@ -1494,3 +1494,86 @@ html[dir="rtl"] .project-toggle strong {
 }
 
 .project-item::after { display: none !important; }
+
+/* Readability and interaction cleanup. */
+html[dir="ltr"] .nav a,
+html[dir="ltr"] .language-toggle {
+  font-family: Manrope, sans-serif;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+.skill-tags span,
+.work-tags span,
+.project-item .work-tags span {
+  font-family: Manrope, sans-serif !important;
+  font-size: .75rem !important;
+  font-weight: 600 !important;
+  line-height: 1.25;
+}
+
+.project-toggle small,
+.career-item time,
+.mini-cert small,
+.project-index {
+  font-family: Manrope, sans-serif;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+.hero-summary,
+html[dir="ltr"] .hero-summary,
+html[dir="rtl"] .hero-summary { font-size: 1.1rem; }
+
+.hero {
+  animation: hero-enter .7s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes hero-enter {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+.project-item { cursor: default; }
+.project-item:hover {
+  border-color: rgba(255, 255, 255, .08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .018));
+}
+
+/* One compact stack surface, with categories inside it rather than separate cards. */
+.skill-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px 36px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .025);
+}
+
+.skill-group {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.skill-group:hover { border-color: transparent; transform: none; }
+
+@media (max-width: 760px) {
+  html[dir="ltr"] .nav a,
+  html[dir="ltr"] .language-toggle { font-size: .7rem; }
+
+  .skill-groups {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero { animation: none; }
+}
