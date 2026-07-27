@@ -1,6 +1,6 @@
 # Bader Bahashwan Portfolio
 
-Source code for my personal portfolio, built to present my work as a Full-Stack and DevOps Engineer.
+Source code for my personal portfolio, built to present my work as a Full-Stack and DevOps Engineer. 
 
 Live portfolio: [Visit my portfolio](https://bader2424.github.io/portfolio/)
 
