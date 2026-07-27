@@ -1727,11 +1727,11 @@ html[dir="rtl"] .career-item h3 { color: var(--lime); }
   gap: 20px;
   align-items: start;
   padding: 20px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  border-bottom: 0;
 }
 
 .skill-group:first-child { padding-top: 0; }
-.skill-group:last-child { padding-bottom: 0; border-bottom: 0; }
+.skill-group:last-child { padding-bottom: 0; }
 
 .skill-group h3 {
   margin: 3px 0 0;
@@ -1748,4 +1748,69 @@ html[dir="rtl"] .career-item h3 { color: var(--lime); }
   }
 
   .skill-group h3 { margin: 0; }
+}
+
+/* One shared contact-link language: direct, centered, and unboxed. */
+.contact-layout {
+  gap: 18px;
+}
+
+.contact-layout .contact-email {
+  gap: 8px;
+  color: var(--lime);
+  font-size: clamp(1rem, 1.5vw, 1.16rem);
+}
+
+.contact-layout .contact-email > svg:last-child {
+  width: 16px;
+  height: 16px;
+  margin-inline-start: 2px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.contact-methods {
+  align-items: center;
+  gap: 18px;
+}
+
+.contact-method {
+  display: inline-flex;
+  width: auto;
+  min-height: 0;
+  padding: 0;
+  gap: 7px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #edf1f5;
+  font: 700 .84rem Manrope, sans-serif;
+}
+
+.contact-method > span:not(.whatsapp-icon),
+.contact-method > svg:last-child { display: block; }
+
+.contact-method > svg:first-child,
+.contact-method .whatsapp-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--lime);
+}
+
+.contact-method > svg:last-child {
+  width: 14px;
+  height: 14px;
+  color: var(--lime);
+}
+
+.contact-method:hover {
+  border: 0;
+  background: transparent;
+  color: var(--lime);
+}
+
+@media (max-width: 760px) {
+  .contact-layout { gap: 14px; }
+  .contact-methods { gap: 14px; }
 }
