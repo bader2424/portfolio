@@ -41,6 +41,3 @@ open index.html
 
 On Linux, use `xdg-open index.html` instead.
 
-## License
-
-Released under the [MIT License](LICENSE).
